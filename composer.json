@@ -1,0 +1,15 @@
+{
+    "name": "ugo/templates",
+    "autoload": {
+        "psr-4": {
+            "Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ugo dauv",
+            "email": "udauvergne@edenschool.fr"
+        }
+    ],
+    "require": {}
+}
