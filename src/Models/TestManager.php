@@ -38,6 +38,19 @@ class TestManager extends Manager {
         ));
     }
 
+    public function update() {
+        $stmt = $this->bdd->prepare("UPDATE LIVRES SET titre = ?, auteur_id = ?, description = ?, slug = ?, date = ? WHERE id = ?");
+        $stmt->execute(array(
+            $_POST['titre'],
+            $_POST['auteur'],
+            $_POST['description'],
+            $_POST['slug'],
+            $_POST['date'],
+            $_POST['hide']
+        ));
+    }
+
+    
     public function getAll() :array
     {
         // appelle tout les articles 

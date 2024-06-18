@@ -19,6 +19,22 @@ use Test\Validator;
         require VIEWS . 'Test/homepage.php';
     }
 
+    public function delete()
+    {
+        $this->manager->delete();
+        // header("Location: /dashboard");
+    }
+    public function edit() {
+        // $livre = $this->manager->getLivre();
+        
+        // require VIEWS . 'livres/edit.php';
+    }
+    public function update() {
+        // $livre = $this->manager->update();
+
+        // require VIEWS . 'livres/edit.php';
+    }
+
     public function store(){
         $store = $this->manager->find($_POST['content']);
         // verifie dans find si 
