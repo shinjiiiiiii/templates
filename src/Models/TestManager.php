@@ -10,28 +10,23 @@ class TestManager extends Manager {
         parent::__construct();
     }
 
-    public function find($titre, $userId)
+    public function find($titre)
     {
         // regarde si un utilisateur a deja cree un article avec le meme titre 
-        $stmt = $this->bdd->prepare("SELECT * FROM Article WHERE titre = ? AND id_user = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM todo WHERE content = ?");
         $stmt->execute(array(
-            $titre,
-            $userId
+            $titre
         ));
-        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Test\Models\article");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Test\Models\Test");
 
         return $stmt->fetch();
     }
 
     public function store() : void{
         // creation d'un article ;
-        $stmt = $this->bdd->prepare("INSERT INTO article(titre, date, photo, texte, id_user) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO todo(content) VALUES (?)");
         $stmt->execute(array(
-            $_POST["titre"],
-            date('y-m-d'),
-            "text.png",
-            $_POST["description"],
-            $_SESSION["user"]["id"]
+            $_POST["content"],
         ));
     }
 
@@ -46,9 +41,9 @@ class TestManager extends Manager {
     public function getAll() :array
     {
         // appelle tout les articles 
-        $stmt = $this->bdd->prepare('SELECT * FROM article');
+        $stmt = $this->bdd->prepare('SELECT * FROM todo');
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Test\Models\article");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Test\Models\Test");
     }
 }

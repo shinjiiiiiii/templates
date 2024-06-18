@@ -15,7 +15,7 @@ $router->get('/logout', "UserController@logout");
 // $router->get('/store', "BoomerController@store");
 
 // $router->post('/tournoi/:tournoi', "JoueurController@store");
-// $router->post('/login', "UserController@Login");
+$router->post('/test/', "TestController@store");
 // $router->post('/register', "UserController@Register");
 // $router->post('/store', "ArticleController@store");
 // $router->post('/delete', "ArticleController@delete");

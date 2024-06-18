@@ -20,4 +20,5 @@ cd .\public\
 ```
 ```shell
 php -S localhost:8000
+local : localhost:8000
 ```
